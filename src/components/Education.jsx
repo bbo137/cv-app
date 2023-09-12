@@ -1,6 +1,11 @@
 import Input from './Input';
 import PropTypes from 'prop-types';
 
+const inputs = [{label:'School', placeholder: 'Academy of Learning and Development'},
+                  {label:'Grade', placeholder: 'Software Engineer'},
+                  {label:'Date', placeholder: '1970'}
+];
+
 export default function Education(props) {
   function handleChange(e, label) {
     props.onData(e, label, props.list.id);
@@ -23,36 +28,21 @@ export default function Education(props) {
       <button onClick={handleUpClick}>up</button>
       <button onClick={handleDownClick}>down</button>
       <button onClick={handleDelete}>x</button>
-      <Input
-        className='input'
-        text={props.list.school}
-        handleChange={handleChange}
-        type='text'
-        id={'school'+props.list.id}
-        label='School'
-        autocomplete='on'
-        placeholder='Academy of Learning and Development'
-      />
-      <Input
-        className='input'
-        text={props.list.grade}
-        handleChange={handleChange}
-        type='text'
-        id={'grade'+props.list.id}
-        label='Grade'
-        autocomplete='on'
-        placeholder='Software Engineer'
-      />
-      <Input
-        className='input'
-        text={props.list.date}
-        handleChange={handleChange}
-        type='text'
-        id={'date'+props.list.id}
-        label='Date'
-        autocomplete='on'
-        placeholder='1970'
-      />
+      
+      {inputs.map((input) => {
+        return(
+          <Input
+            key={input.label+props.list.id}
+            className='input'
+            text={props.list[input.label.toLowerCase()]}
+            handleChange={handleChange}
+            type='text'
+            id={input.label+props.list.id}
+            label={input.label}
+            placeholder={input.placeholder}
+          />
+        )
+      })}
     </div>
   );
 }
