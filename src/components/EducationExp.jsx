@@ -10,23 +10,7 @@ export default function EducationExp({ status }) {
 
   function handleData(e, type, id) {
     const index = list.indexOf(...list.filter(obj => obj.id === id));
-    switch (type.toLowerCase()) {
-      case 'school':
-        setList([...list.slice(0, index), {...list[index], school: e.target.value}, ...list.slice(index + 1)]);
-        break;
-
-      case 'grade':
-        setList([...list.slice(0, index), {...list[index], grade: e.target.value}, ...list.slice(index + 1)]);
-        break;
-
-      case 'date':
-        setList([...list.slice(0, index), {...list[index], date: e.target.value}, ...list.slice(index + 1)]);
-        break;
-
-      default:
-        console.log(e);
-        console.log('no input type');
-    }
+    setList([...list.slice(0, index), {...list[index], [type.toLowerCase()]: e.target.value}, ...list.slice(index + 1)]);
   }
 
   function handleClose(id) {

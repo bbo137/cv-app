@@ -7,11 +7,11 @@ export default function Input(props) {
       <label>
         {props.label}
         <input
-          value={props.text}
+          value={props.text || ''}
           type={props.type}
           id={props.id}
           placeholder={props.placeholder}
-          onChange={(e) => props.handleChange(e, props.label)}
+          onChange={(e) => props.handleChange(e, props.label, props.id)}
         />
       </label>
     </div>
@@ -19,11 +19,11 @@ export default function Input(props) {
 }
 
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  type: PropTypes.string,
   id: PropTypes.string,
   placeholder: PropTypes.string,
-  text: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  text: PropTypes.string,
+  handleChange: PropTypes.func,
   list: PropTypes.array,
 };
