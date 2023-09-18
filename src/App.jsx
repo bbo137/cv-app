@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 import GeneralInfo from './components/GeneralInfo';
 import EducationExp from './components/EducationExp';
-import ProfesionalExp from './components/ProfesionalExp';
+import PracticalExp from './components/PracticalExp';
+
+const styles = {
+  width: '100%',
+  height: '10.5pt',
+  backgroundColor: 'rgb(21, 128, 61)',
+  color: 'red'
+};
 
 function App() {
   const states = ['filling', 'filled'];
@@ -14,20 +19,20 @@ function App() {
 
   return (
     <>
-      <h1>Cv App</h1>
+      <div style={styles}></div>
       {status === 0 ? (
         <>
-          <h1>filling</h1>
-          <GeneralInfo status={status} />
-          <EducationExp status={status} />
-          <ProfesionalExp></ProfesionalExp>
+          <GeneralInfo key='info' status={status} />
+          <EducationExp key='edexp' status={status} />
+          <PracticalExp key='prexp' status={status} />
           <button onClick={() => setStatus(1)}>Create</button>
         </>
       ) : (
         <>
-          <h1>filled</h1>
-          <GeneralInfo status={status} />
-          <EducationExp status={status} />
+          <GeneralInfo key='info' status={status} />
+          <hr></hr>
+          <EducationExp key='edexp' status={status} />
+          <PracticalExp key='prexp' status={status} />
           <button onClick={() => setStatus(0)}>Edit</button>
         </>
       )}

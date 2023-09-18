@@ -11,6 +11,7 @@ export default function Input(props) {
           type={props.type}
           id={props.id}
           placeholder={props.placeholder}
+          autoComplete='on'
           onChange={(e) => props.handleChange(e, props.label, props.id)}
         />
       </label>
