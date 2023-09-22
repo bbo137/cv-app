@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import Practical from './Practical';
+import { Fragment } from 'react';
 
 let nextId = 1;
+const styles = {
+  width: '3rem',
+  height: '4pt',
+};
 
-export default function PracticalExp({ status }) {
+export default function PracticalExp({ status, currentColor }) {
   const [list, setList] = useState([
     { id: 0, company: '', role: '', date: '', description: '' },
   ]);
@@ -55,29 +60,40 @@ export default function PracticalExp({ status }) {
 
   return (
     <div className='card'>
-      <h1>Practical Experience</h1>
       {status === 0 ? (
         <>
-          {list.map((obj) => (
-            <Practical
-              status={status}
-              onData={handleData}
-              handleDelete={handleClose}
-              handleUpClick={handleUpClick}
-              handleDownClick={handleDownClick}
-              list={obj}
-              key={obj.id}
-            />
+          <div className='title-container filling'>
+            <h1>Practical Experience</h1>
+          </div>
+          {list.map((obj, i) => (
+            <Fragment key={obj.id}>
+              <Practical
+                status={status}
+                onData={handleData}
+                handleDelete={handleClose}
+                handleUpClick={handleUpClick}
+                handleDownClick={handleDownClick}
+                list={obj}
+                key={obj.id}
+              />
+              {(i != list.length-1) && <hr></hr>}
+            </Fragment>
           ))}
           <button onClick={handleClick}>Add</button>
         </>
       ) : (
         <div className='laboral-info'>
+          <div className='title-container'>
+            <div className='dash' style={{...styles, backgroundColor: currentColor}}></div>
+            <h1>Practical Experience</h1>
+          </div>
           {list.map((element) => (
-            <div key={element.id}>
-              <div>{element.company}</div>
-              <div>{element.role}</div>
-              <div>{element.date}</div>
+            <div className='practical-exp' key={element.id}>
+              <div className='title'>{element.company}</div>
+              <div className='content'>
+                <div>{element.role}</div>
+                <div>{element.date}</div>
+              </div>
               <div>{element.description}</div>
             </div>
           ))}
