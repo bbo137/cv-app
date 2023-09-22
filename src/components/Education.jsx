@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const inputs = [{label:'School', placeholder: 'Academy of Learning and Development'},
                   {label:'Grade', placeholder: 'Software Engineer'},
-                  {label:'Date', placeholder: '1970'}
+                  {label:'Date', placeholder: '1970'},
+                  {label:'Gpa', placeholder: '4'},
+                  {label:'Description', placeholder: ''},
 ];
 
 export default function Education(props) {
@@ -24,11 +26,13 @@ export default function Education(props) {
   }
 
   return (
-    <div className='education'>
-      <button onClick={handleUpClick}>up</button>
-      <button onClick={handleDownClick}>down</button>
-      <button onClick={handleDelete}>x</button>
-      
+    <div className='education subcard'>
+      <div className='button-container'>
+        <button className='button-up' onClick={handleUpClick}></button>
+        <button className='button-down' onClick={handleDownClick}></button>
+        <button className='button-delete' onClick={handleDelete}></button>
+      </div>
+     
       {inputs.map((input) => {
         return(
           <Input

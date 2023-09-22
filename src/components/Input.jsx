@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default function Input(props) {
 
   return (
-    <div className='input'>
+    <div className={'input ' + props.label.toLowerCase()}>
       <label>
         {props.label}
         <input

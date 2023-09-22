@@ -19,10 +19,12 @@ export default function Practical(props) {
   }
 
   return (
-    <div className='laboral'>
-      <button onClick={handleUpClick}>up</button>
-      <button onClick={handleDownClick}>down</button>
-      <button onClick={handleDelete}>x</button>
+    <div className='laboral subcard'>
+      <div className='button-container'>
+        <button className='button-up' onClick={handleUpClick}></button>
+        <button className='button-down' onClick={handleDownClick}></button>
+        <button className='button-delete' onClick={handleDelete}></button>
+      </div>
       <Input
         className='input'
         text={props.list.company}
@@ -43,6 +45,7 @@ export default function Practical(props) {
         autocomplete='on'
         placeholder='Software Engineer'
       />
+      <>
       <Input
         className='input'
         text={props.list.date}
@@ -53,6 +56,7 @@ export default function Practical(props) {
         autocomplete='on'
         placeholder='1970'
       />
+      </>
       <Input
         className='input'
         text={props.list.description}
