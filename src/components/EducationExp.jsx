@@ -10,7 +10,7 @@ const styles = {
 
 export default function EducationExp({ status, currentColor }) {
   const [list, setList] = useState([
-    { id: 0, school: '', grade: '', date: '', gpa: '', description: ''},
+    { id: 0, school: '', grade: '', date: '', gpa: '', description: '' },
   ]);
 
   function handleData(e, type, id) {
@@ -29,7 +29,10 @@ export default function EducationExp({ status, currentColor }) {
   }
 
   function handleClick() {
-    setList([...list, { id: nextId, school: '', grade: '', date: '', gpa: '', description: ''}]);
+    setList([
+      ...list,
+      { id: nextId, school: '', grade: '', date: '', gpa: '', description: '' },
+    ]);
     nextId++;
   }
 
@@ -56,38 +59,44 @@ export default function EducationExp({ status, currentColor }) {
   }
 
   return (
-    <div className='card'>
+    <div className="card">
       {status === 0 ? (
         <>
-          <div className='title-container filling'>
+          <div className="title-container filling">
             <h1>Educational Experience</h1>
           </div>
           {list.map((obj, i) => (
             <Fragment key={obj.id}>
               <Education
-                  status={status}
-                  onData={handleData}
-                  handleDelete={handleClose}
-                  handleUpClick={handleUpClick}
-                  handleDownClick={handleDownClick}
-                  list={obj}
-                />
-              {(i != list.length-1) && <hr></hr>}
+                status={status}
+                onData={handleData}
+                handleDelete={handleClose}
+                handleUpClick={handleUpClick}
+                handleDownClick={handleDownClick}
+                list={obj}
+              />
+              {i != list.length - 1 && <hr></hr>}
             </Fragment>
           ))}
           <button onClick={handleClick}>Add</button>
         </>
       ) : (
-        <div className='education-info'>
-          <div className='title-container'>
-            <div className='dash' style={{...styles, backgroundColor: currentColor}}></div>
+        <div className="education-info">
+          <div className="title-container">
+            <div
+              className="dash"
+              style={{ ...styles, backgroundColor: currentColor }}
+            ></div>
             <h1>Educational Experience</h1>
           </div>
           {list.map((element) => (
-            <div className='education-exp' key={element.id}>
-              <div className='title'>{element.school}</div>
-              <div className='content'>
-                <div>{element.grade} {(element.gpa.length != 0) && (' - '+element.gpa+' GPA')}</div>
+            <div className="education-exp" key={element.id}>
+              <div className="title">{element.school}</div>
+              <div className="content">
+                <div>
+                  {element.grade}{' '}
+                  {element.gpa.length != 0 && ' - ' + element.gpa + ' GPA'}
+                </div>
                 <div>{element.date}</div>
               </div>
             </div>

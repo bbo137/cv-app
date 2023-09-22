@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 export default function Input(props) {
-
   return (
     <div className={'input ' + props.label.toLowerCase()}>
       <label>
@@ -11,7 +10,7 @@ export default function Input(props) {
           type={props.type}
           id={props.id}
           placeholder={props.placeholder}
-          autoComplete='on'
+          autoComplete="on"
           onChange={(e) => props.handleChange(e, props.label, props.id)}
         />
       </label>

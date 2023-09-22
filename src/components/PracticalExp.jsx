@@ -59,10 +59,10 @@ export default function PracticalExp({ status, currentColor }) {
   }
 
   return (
-    <div className='card'>
+    <div className="card">
       {status === 0 ? (
         <>
-          <div className='title-container filling'>
+          <div className="title-container filling">
             <h1>Practical Experience</h1>
           </div>
           {list.map((obj, i) => (
@@ -76,21 +76,24 @@ export default function PracticalExp({ status, currentColor }) {
                 list={obj}
                 key={obj.id}
               />
-              {(i != list.length-1) && <hr></hr>}
+              {i != list.length - 1 && <hr></hr>}
             </Fragment>
           ))}
           <button onClick={handleClick}>Add</button>
         </>
       ) : (
-        <div className='laboral-info'>
-          <div className='title-container'>
-            <div className='dash' style={{...styles, backgroundColor: currentColor}}></div>
+        <div className="laboral-info">
+          <div className="title-container">
+            <div
+              className="dash"
+              style={{ ...styles, backgroundColor: currentColor }}
+            ></div>
             <h1>Practical Experience</h1>
           </div>
           {list.map((element) => (
-            <div className='practical-exp' key={element.id}>
-              <div className='title'>{element.company}</div>
-              <div className='content'>
+            <div className="practical-exp" key={element.id}>
+              <div className="title">{element.company}</div>
+              <div className="content">
                 <div>{element.role}</div>
                 <div>{element.date}</div>
               </div>

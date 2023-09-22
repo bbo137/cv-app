@@ -1,43 +1,341 @@
+html,
+body,
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background-color: #888;
+  min-width: 1280px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f5;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#root:has(.filling) {
+  background-color: #cbd5e1;
 }
 
 .card {
-  padding: 2em;
+  padding: 1rem 2rem;
+  margin: 1rem 2rem;
+  border-radius: 8px;
+  overflow: hidden auto;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.card:has(.filling) {
+  background-color: #f4f4f5;
+  min-width: 1000px;
+  padding: 1rem 3rem;
+  margin: 1rem 2rem;
+  border: 2px solid white;
+  position: relative;
+}
+
+.general-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.title-container {
+  display: flex;
+}
+
+.dash {
+  align-self: center;
+  margin-right: 1rem;
+}
+
+.education-exp,
+.practical-exp {
+  padding: 1rem;
+}
+
+.title {
+  font-weight: 600;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info.email::before {
+  display: inline-block;
+  position: relative;
+  content: ' ';
+  background: url(/src/assets/email-outline.svg);
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.info.phone::before {
+  display: inline-block;
+  position: relative;
+  content: ' ';
+  background: url(/src/assets/cellphone.svg);
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.info.website::before {
+  display: inline-block;
+  position: relative;
+  content: ' ';
+  background: url(/src/assets/open-in-new.svg);
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.info.location::before {
+  display: inline-block;
+  position: relative;
+  content: ' ';
+  background: url(/src/assets/map-marker.svg);
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.info.github::before {
+  display: inline-block;
+  position: relative;
+  content: ' ';
+  background: url(/src/assets/github.svg);
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.info.linkedin::before {
+  display: inline-block;
+  position: relative;
+  content: ' ';
+  background: url(/src/assets/linkedin.svg);
+  vertical-align: middle;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.subcard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem 2rem;
+}
+
+.button-up {
+  content: ' ';
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%2371717a" viewBox="0 0 24 24"><title>chevron-up</title><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" /></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20px 20px;
+}
+
+.button-down {
+  content: ' ';
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%2371717a" viewBox="0 0 24 24"><title>chevron-down</title><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20px 20px;
+}
+
+.button-delete {
+  content: ' ';
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%2371717a" viewBox="0 0 24 24"><title>trash-can-outline</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20px 20px;
+}
+
+.education.subcard {
+  display: grid;
+  grid-template-areas: "school school date"
+    "grade grade gpa"
+    "description description description";
+}
+
+.input.school {
+  grid-area: school;
+}
+
+.input.date {
+  grid-area: date;
+}
+
+.input.grade {
+  grid-area: grade;
+}
+
+.input.gpa {
+  grid-area: gpa;
+}
+
+.input.description {
+  grid-area: description;
+}
+
+label {
+  font-size: 1.1rem;
+}
+
+Input {
+  background-color: #fafafa;
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 2px;
+  border: 1px solid #a1a1aa;
+  box-shadow: 1px 1px 10px -1px rgba(148, 163, 184, 0.3);
+}
+
+.input:hover {
+  filter: brightness(1.2);
+  filter: contrast(1.5)
+}
+
+.button-container {
+  display: block;
+  position: absolute;
+  margin: -4px;
+  right: 50px;
+  z-index: 1;
+}
+
+.subcard:nth-child(2)>.button-container>button:not(.button-down) {
+  opacity: 0.4;
+  cursor: not-allowed;
+  display: none;
+}
+
+.card> :nth-last-child(2)>.button-container>.button-down {
+  opacity: 0.4;
+  cursor: not-allowed;
+  display: none;
+}
+
+.input-container.filling {
+  display: grid;
+  gap: 0.25rem 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: "title title title title title title "
+    "name name name name name name "
+    "summary summary summary summary summary summary "
+    "email email email email phone phone"
+    "website website website website location location ";
+
+}
+
+.input-container.filling>h1 {
+  grid-area: title;
+}
+
+.input.name {
+  grid-area: name;
+}
+
+.input.summary {
+  grid-area: summary;
+}
+
+.input.email {
+  grid-area: email;
+}
+
+.input.phone {
+  grid-area: phone;
+}
+
+.input.website {
+  grid-area: website;
+}
+
+.input.location {
+  grid-area: location;
+}
+
+.input.github {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.input.linkedin {
+  grid-column-start: 4;
+  grid-column-end: 7;
+}
+
+.laboral.subcard {
+  display: grid;
+  gap: 0.25rem 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "company company company"
+    "role role date"
+    "description description description";
+}
+
+.input.company {
+  grid-area: company;
+}
+
+.input.role {
+  grid-area: role;
+}
+
+.input.gradatede {
+  grid-area: date;
+}
+
+.input.description {
+  grid-area: description;
+}
+
+hr {
+  border: 1px dashed #a1a1aa;
+  width: 100%;
+}
+
+.card>button {
+  min-width: 150px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a1a1aa" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>');
+  background-repeat: no-repeat;
+  background-size: 15%;
+  background-position: 30px center;
+  align-self: end;
+}
+
+#root {
+  display: grid;
+}
+
+#root>button {
+  justify-self: end;
+  margin: 2rem;
+}
+
+.color-container {
+  min-height: 50px;
+  margin: 1rem 0rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.color-square {
+  border-radius: 2px;
+  margin: 0.1rem;
+}
+
+.main-title {
+  justify-self: center;
 }
