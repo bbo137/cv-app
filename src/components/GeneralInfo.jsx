@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Input from './Input';
+import { Fragment } from 'react';
 
 const inputs = [
   { type: 'text', id: 'name', label: 'Name', placeholder: 'John Doe' },
@@ -43,7 +44,7 @@ const inputs = [
   },
 ];
 
-export default function GeneralInfo({ status }) {
+export default function GeneralInfo({ status, currentColor }) {
   const [state, setState] = useState({
     name: '',
     summary: '',
@@ -53,40 +54,72 @@ export default function GeneralInfo({ status }) {
     location: '',
     github: '',
     linkedin: '',
-  })
+  });
 
   function handleChange(e, type, id) {
-    setState((prevState) => ({...prevState, [id]: e.target.value}));
+    setState((prevState) => ({ ...prevState, [id]: e.target.value }));
   }
 
   return (
-    <div className='card'>
-      <h2>General Information</h2>
+    <div className="card">
       {status === 0 ? (
-        <div className='input-container'>
+        <div className="input-container filling">
+          <h1>General Information</h1>
           {inputs.map((input) => {
             return (
               <Input
                 key={input.id}
-                className='input'
+                className="input"
                 text={state[input.id]}
                 handleChange={handleChange}
                 type={input.type}
                 id={input.id}
                 label={input.label}
-                autocomplete='on'
                 placeholder={input.placeholder}
               />
             );
           })}
         </div>
       ) : (
-        <div className='general-info'>
-          {inputs.map((input) => {
-            return (
-              <div key={input.id} className={'info ' + input.id}>{state[input.id]}</div>
-            );
-          })}
+        <div className="general-info">
+          <h1 className={'info name'} style={{ color: currentColor }}>
+            {state.name}
+          </h1>
+          <div className={'info summary'}>{state.summary}</div>
+          <div className="top-bar">
+            {inputs
+              .filter((input) => input.id != 'name' && input.id != 'summary')
+              .map((input) => {
+                return (
+                  state[input.id].length === 0 ||
+                  (input.id === 'phone' || input.id === 'location' ? (
+                    <div key={input.id} className={'info ' + input.id}>
+                      {state[input.id]}
+                    </div>
+                  ) : (
+                    <Fragment key={input.id}>
+                      {input.id === 'github' ? (
+                        <a
+                          key={input.id}
+                          className={'info ' + input.id}
+                          href={'www.github.com/' + state[input.id]}
+                        >
+                          {state[input.id]}
+                        </a>
+                      ) : (
+                        <a
+                          key={input.id}
+                          className={'info ' + input.id}
+                          href={state[input.id]}
+                        >
+                          {state[input.id]}
+                        </a>
+                      )}
+                    </Fragment>
+                  ))
+                );
+              })}
+          </div>
         </div>
       )}
     </div>
