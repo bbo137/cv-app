@@ -1,8 +1,19 @@
-# React + Vite
+# CV-App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page application developed using React to practice concepts like `useState`, components and props. This app allows users to create, customize, and generate a CV.
 
-Currently, two official plugins are available:
+## Features
+- **General Information:** Fill out your personal details.
+- **Educational Experience:** Add and manage multiple educational experiences.
+- **Practical Experience:** Add and manage job and other practical experiences.
+- **Customization:** Reorder experiences and pick a color from a palette or input a custom color (e.g., ``#ffffff``).
+- **CV Generation:** View the generated CV and switch back to edit mode to make changes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- React
+- Vite
+
+## Usage Instructions
+1. Navigate to the [CV-App Live Demo](https://cv-app-khaki-beta.vercel.app) to access the application.
+2. Fill in your personal details, add educational and practical experiences, and customize the color scheme.
+3. Generate your CV and review it. You can switch back to edit mode to make any changes.
